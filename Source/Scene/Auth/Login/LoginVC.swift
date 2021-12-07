@@ -2,54 +2,72 @@
 //  LoginVC.swift
 //  Memo
 //
-//  Created by baegteun on 2021/11/24.
+//  Created by baegteun on 2021/12/07.
+//  Copyright © 2021 baegteun. All rights reserved.
 //
 
 import UIKit
 import Then
 import SnapKit
 import RxSwift
+import RxCocoa
 
-final class LoginVC: baseVC<LoginVM>{
+final class LoginVC: baseVC<LoginReactor>{
     // MARK: - Properties
     private let welcomeLabel = UILabel().then {
-        $0.text = "Welcome \nBack"
-        $0.numberOfLines = 2
+        $0.text = "Welcome !"
+        $0.font = UIFont(name: "Zapfino", size: 30)
+        $0.numberOfLines = 0
         $0.textAlignment = .left
     }
     
-    private let nameTextField = AuthTextField(icon: .init(systemName: "person") ?? .init(), placeholder: "Nickname")
+    private let nameTextField = AuthTextField(icon: UIImage(systemName: "person") ?? .init(), placeholder: "Nickname")
     
-    private let passwordTextField = AuthTextField(icon: .init(systemName: "lock") ?? .init(), placeholder: "Password")
+    private let passwordTextField = AuthTextField(icon: UIImage(systemName: "lock") ?? .init(), placeholder: "Password")
     
-    private let passwordVisibleButton = UIButton()
+    private let passwordVisiblityButton = UIButton()
     
-    private let doneButton = UIButton()
+    private let doneButton = UIButton().then {
+        $0.setTitle("Log In", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.backgroundColor = .blue.withAlphaComponent(0.7)
+        $0.layer.cornerRadius = 15
+    }
     
     private lazy var stack = UIStackView(arrangedSubviews: [nameTextField, passwordTextField, doneButton]).then {
         $0.axis = .vertical
-        $0.spacing = 30
+        $0.spacing = 40
     }
     
+    private let toRegisterButton = UIButton().then {
+        $0.setTitle("Register Now", for: .normal)
+        $0.setTitleColor(.gray, for: .normal)
+        
+    }
     
-    // MARK: - SetUI
-    override func addView() {
-//        [welcomeLabel, stack, passwordVisibleButton].forEach{view.addSubview($0)}
-        [welcomeLabel, nameTextField, passwordVisibleButton].forEach{view.addSubview($0)}
+    // MARK: - UI
+    override func addView(){
+        [welcomeLabel, stack, passwordVisiblityButton, toRegisterButton].forEach{ view.addSubview($0) }
     }
     override func setLayout() {
         welcomeLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide).inset(bound.height*0.15)
+            $0.top.equalToSuperview().offset(bound.height*0.1)
         }
         stack.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(welcomeLabel.snp.bottom).inset(bound.height*0.1)
-            $0.leading.trailing.equalToSuperview().inset(bound.width*0.1)
+            $0.top.equalTo(welcomeLabel.snp.bottom).offset(bound.height*0.1)
+            $0.leading.trailing.equalToSuperview().inset(bound.width*0.05)
         }
-        passwordVisibleButton.snp.makeConstraints {
-            $0.trailing.equalTo(stack.snp.trailing)
-            $0.centerY.equalTo(stack)
+        doneButton.snp.makeConstraints {
+            $0.height.equalTo(50)
+        }
+        passwordVisiblityButton.snp.makeConstraints {
+            $0.centerY.trailing.equalTo(passwordTextField)
+        }
+        toRegisterButton.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(30)
         }
     }
     override func configureVC() {
@@ -57,32 +75,50 @@ final class LoginVC: baseVC<LoginVM>{
         
     }
     
-    override func bind() {
-        let input = LoginVM.Input(
-            nameText: nameTextField.textField.rx.text.orEmpty.asObservable(),
-            passwordText: passwordTextField.textField.rx.text.orEmpty.asObservable(),
-            passwordVisibleDidTap: passwordVisibleButton.rx.tap.asObservable(),
-            doneDidTap: doneButton.rx.tap.asObservable()
-        )
-        
-        let output = viewModel.transform(input: input)
-        
-        output.pwdIsVisible
-            .bind(to: passwordTextField.textField.rx.isSecureTextEntry)
+    // MARK: - Reactor
+    override func bindView(reactor: LoginReactor) {
+        toRegisterButton.rx.tap
+            .map { Reactor.Action.toRegisterButtonDidTap }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        output.buttonColor
-            .bind(to: doneButton.rx.backgroundColor)
+        nameTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updateNickname(name: $0) }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        output.buttonIsEnabled
-            .bind(to: doneButton.rx.isEnabled)
+        passwordTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updatePassword(pwd: $0) }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        output.navigateToRegister
-            .subscribe(onNext: { [weak self] step in 
-                self?.viewModel.navigateToRegister(step)
-            })
+        passwordVisiblityButton.rx.tap
+            .map { Reactor.Action.passwordVisiblityButtonDidTap }
+            .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
+        doneButton.rx.tap
+            .map { Reactor.Action.doneDidTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    override func bindState(reactor: LoginReactor) {
+        let sharedState = reactor.state.share(replay: 2).observe(on: MainScheduler.instance)
+        let pwdVisible = sharedState.map { $0.isPasswordVisible }
+        
+        pwdVisible
+            .map { $0 ? UIImage(systemName: "eye") : UIImage(systemName: "eye.slash") }
+            .bind(to: passwordVisiblityButton.rx.image())
+            .disposed(by: disposeBag)
+        
+        pwdVisible
+            .map { !$0 }
+            .bind(to: passwordTextField.rx.isSecureTextEntry)
+            .disposed(by: disposeBag)
+    }
+    override func bindAction(reactor: LoginReactor) {
+        
     }
 }

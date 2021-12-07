@@ -52,9 +52,9 @@ final class LoginFlow: Flow{
 // MARK: - Method
 private extension LoginFlow{
     func coordinateToLogin() -> FlowContributors{
-        let vm = LoginVM()
-        let vc = LoginVC(vm: vm)
+        let reactor = LoginReactor()
+        let vc = LoginVC(reactor: reactor)
         self.rootVC.pushViewController(vc, animated: true)
-        return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: vm))
+        return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: reactor))
     }
 }

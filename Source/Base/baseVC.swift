@@ -7,37 +7,47 @@
 
 import UIKit
 import RxSwift
+import ReactorKit
 
-class baseVC<T: baseViewModel>: UIViewController{
-    // MARK: - Properties
+class baseVC<T: Reactor>: UIViewController{
     let bound = UIScreen.main.bounds
-    let disposeBag: DisposeBag = .init()
-    let viewModel: T
+    var disposeBag: DisposeBag = .init()
     
-    // MARK: - Init
-    init(vm: T){
-        self.viewModel = vm
+    @available(*, unavailable)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        addView()
+        setLayout()
+        configureVC()
+    }
+    
+    init(reactor: T){
         super.init(nibName: nil, bundle: nil)
+        self.reactor = reactor
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle
-    @available(*, unavailable)
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addView()
-        setLayout()
-        configureVC()
-        bind()
+    deinit{
+        print("\(type(of: self)): \(#function)")
     }
     
-    
-    // MARK: - Helpers
     func addView(){}
     func setLayout(){}
-    func configureVC(){view.backgroundColor = .white}
-    func bind(){}
+    func configureVC(){}
+    
+    func bindView(reactor: T){}
+    func bindAction(reactor: T){}
+    func bindState(reactor: T){}
+}
+
+extension baseVC: View{
+    func bind(reactor: T) {
+        bindView(reactor: reactor)
+        bindAction(reactor: reactor)
+        bindState(reactor: reactor)
+    }
 }

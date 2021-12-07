@@ -13,8 +13,10 @@ target 'Memo' do
 
   # RxFramework
   pod 'RxFlow'
+  pod 'ReactorKit'
 
   # RxUtil
+  pod 'RxSwiftExt'
   pod 'RxViewController'
   pod 'Moya/RxSwift'
 
