@@ -10,6 +10,7 @@ import UIKit
 import ReactorKit
 import Then
 import SnapKit
+import RxCocoa
 
 final class RegisterVC: baseVC<RegisterReactor>{
     // MARK: - Properties
@@ -66,5 +67,37 @@ final class RegisterVC: baseVC<RegisterReactor>{
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(30)
         }
+    }
+    
+    // MARK: - Reactor
+    override func bindView(reactor: RegisterReactor) {
+        nicknameTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updateNickname(name: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        passwordTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updatePassword(pwd: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        chkPasswordTextField.rx.text
+            .orEmpty
+            .map { Reactor.Action.updateChkPassword(pwd: $0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        toLoginButton.rx.tap
+            .map { Reactor.Action.loginButtonDidTap }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+    }
+    override func bindState(reactor: RegisterReactor) {
+        
+    }
+    override func bindAction(reactor: RegisterReactor) {
+        
     }
 }

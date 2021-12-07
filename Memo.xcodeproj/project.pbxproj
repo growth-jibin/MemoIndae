@@ -14,6 +14,7 @@
 		465C9345275F59BA00F90369 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9344275F59BA00F90369 /* LoginReactor.swift */; };
 		465C934D275F844800F90369 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934C275F844800F90369 /* RegisterVC.swift */; };
 		465C934F275F846300F90369 /* RegisterReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934E275F846300F90369 /* RegisterReactor.swift */; };
+		465C9354275F949F00F90369 /* RegisterFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9353275F949F00F90369 /* RegisterFlow.swift */; };
 		467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9C6275E2B67003C13C8 /* StepExt.swift */; };
 		467DB9D4275E2B67003C13C8 /* MemoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9C9275E2B67003C13C8 /* MemoStep.swift */; };
 		467DB9D5275E2B67003C13C8 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9CA275E2B67003C13C8 /* AppFlow.swift */; };
@@ -52,6 +53,7 @@
 		465C9344275F59BA00F90369 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		465C934C275F844800F90369 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		465C934E275F846300F90369 /* RegisterReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterReactor.swift; sourceTree = "<group>"; };
+		465C9353275F949F00F90369 /* RegisterFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlow.swift; sourceTree = "<group>"; };
 		467DB9C6275E2B67003C13C8 /* StepExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepExt.swift; sourceTree = "<group>"; };
 		467DB9C9275E2B67003C13C8 /* MemoStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoStep.swift; sourceTree = "<group>"; };
 		467DB9CA275E2B67003C13C8 /* AppFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		465C9350275F943400F90369 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				465C9353275F949F00F90369 /* RegisterFlow.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				BC9CE930BEA3C3E0BF44F92C /* Bundle+Memo.swift in Sources */,
 				4719D696DECAAC0FD4D011AE /* AppDelegate.swift in Sources */,
 				467DB9F8275E2BA8003C13C8 /* AuthTextField.swift in Sources */,
+				465C9354275F949F00F90369 /* RegisterFlow.swift in Sources */,
 				467DBA05275ECF99003C13C8 /* UITextFieldExt.swift in Sources */,
 				465C934D275F844800F90369 /* RegisterVC.swift in Sources */,
 				467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */,
