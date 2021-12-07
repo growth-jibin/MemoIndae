@@ -12,6 +12,8 @@
 		316F0FE7DB2C0EFA68AD1F75 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB92180BF0DBFE0E952E9CD /* LaunchScreen.storyboard */; };
 		465C9343275F599B00F90369 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9342275F599B00F90369 /* LoginVC.swift */; };
 		465C9345275F59BA00F90369 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9344275F59BA00F90369 /* LoginReactor.swift */; };
+		465C934D275F844800F90369 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934C275F844800F90369 /* RegisterVC.swift */; };
+		465C934F275F846300F90369 /* RegisterReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934E275F846300F90369 /* RegisterReactor.swift */; };
 		467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9C6275E2B67003C13C8 /* StepExt.swift */; };
 		467DB9D4275E2B67003C13C8 /* MemoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9C9275E2B67003C13C8 /* MemoStep.swift */; };
 		467DB9D5275E2B67003C13C8 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9CA275E2B67003C13C8 /* AppFlow.swift */; };
@@ -48,6 +50,8 @@
 		3CB92180BF0DBFE0E952E9CD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		465C9342275F599B00F90369 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		465C9344275F59BA00F90369 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
+		465C934C275F844800F90369 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		465C934E275F846300F90369 /* RegisterReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterReactor.swift; sourceTree = "<group>"; };
 		467DB9C6275E2B67003C13C8 /* StepExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepExt.swift; sourceTree = "<group>"; };
 		467DB9C9275E2B67003C13C8 /* MemoStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoStep.swift; sourceTree = "<group>"; };
 		467DB9CA275E2B67003C13C8 /* AppFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
@@ -118,6 +122,13 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
+		465C9350275F943400F90369 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		467DB9C3275E2B67003C13C8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				467DB9CE275E2B67003C13C8 /* Login */,
+				465C9350275F943400F90369 /* Register */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -214,6 +226,8 @@
 		467DB9DC275E2B92003C13C8 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				465C934C275F844800F90369 /* RegisterVC.swift */,
+				465C934E275F846300F90369 /* RegisterReactor.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -446,10 +460,12 @@
 				4719D696DECAAC0FD4D011AE /* AppDelegate.swift in Sources */,
 				467DB9F8275E2BA8003C13C8 /* AuthTextField.swift in Sources */,
 				467DBA05275ECF99003C13C8 /* UITextFieldExt.swift in Sources */,
+				465C934D275F844800F90369 /* RegisterVC.swift in Sources */,
 				467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */,
 				467DBA02275E2BCA003C13C8 /* Network.swift in Sources */,
 				467DB9D7275E2B67003C13C8 /* LoginFlow.swift in Sources */,
 				467DB9D6275E2B67003C13C8 /* AppStepper.swift in Sources */,
+				465C934F275F846300F90369 /* RegisterReactor.swift in Sources */,
 				E41899ED6C03FAB7FC164E4D /* SceneDelegate.swift in Sources */,
 				467DB9D4275E2B67003C13C8 /* MemoStep.swift in Sources */,
 			);

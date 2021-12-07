@@ -1,5 +1,5 @@
 //
-//  LoginReactor.swift
+//  RegisterReactor.swift
 //  Memo
 //
 //  Created by baegteun on 2021/12/07.
@@ -7,11 +7,10 @@
 //
 
 import ReactorKit
-import RxSwift
 import RxFlow
 import RxRelay
 
-final class LoginReactor: Reactor, Stepper{
+final class RegisterReactor: Reactor, Stepper{
     // MARK: - Properties
     private let disposeBag: DisposeBag = .init()
     
@@ -23,52 +22,59 @@ final class LoginReactor: Reactor, Stepper{
     enum Action{
         case updateNickname(name: String)
         case updatePassword(pwd: String)
-        case doneDidTap
-        case toRegisterButtonDidTap
+        case updateChkPassword(pwd: String)
+        case registerButtonDidTap
+        case loginButtonDidTap
     }
     enum Mutation{
-        case setNickname(name: String)
+        case setName(name: String)
         case setPassword(pwd: String)
+        case setChkPassword(pwd: String)
     }
     struct State{
         var nickname: String = ""
         var password: String = ""
+        var checkPassword: String = ""
     }
 }
 
-// MARK: - Mutation
-extension LoginReactor{
+// MARK: - Mutate
+extension RegisterReactor{
     func mutate(action: Action) -> Observable<Mutation> {
-        switch action {
+        switch action{
         case .updateNickname(let name):
-            return .just(.setNickname(name: name))
+            return .just(.setName(name: name))
         case .updatePassword(let pwd):
             return .just(.setPassword(pwd: pwd))
-        case .doneDidTap:
+        case .updateChkPassword(let pwd):
+            return .just(.setChkPassword(pwd: pwd))
+        case .registerButtonDidTap:
             
             return .empty()
-        case .toRegisterButtonDidTap:
-            steps.accept(MemoStep.registerIsRequired)
+        case .loginButtonDidTap:
+            steps.accept(MemoStep.loginIsRequired)
             return .empty()
         }
     }
 }
 
 // MARK: - Reduce
-extension LoginReactor{
+extension RegisterReactor{
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .setNickname(let name):
+        case .setName(let name):
             newState.nickname = name
         case .setPassword(let pwd):
             newState.password = pwd
+        case .setChkPassword(let pwd):
+            newState.checkPassword = pwd
         }
         return newState
     }
 }
 
 // MARK: - Method
-private extension LoginReactor{
+extension RegisterReactor{
     
 }

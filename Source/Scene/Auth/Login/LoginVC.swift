@@ -17,15 +17,14 @@ final class LoginVC: baseVC<LoginReactor>{
     private let welcomeLabel = UILabel().then {
         $0.text = "Welcome !"
         $0.font = UIFont(name: "Zapfino", size: 30)
-        $0.numberOfLines = 0
         $0.textAlignment = .left
     }
     
     private let nameTextField = AuthTextField(icon: UIImage(systemName: "person") ?? .init(), placeholder: "Nickname")
     
-    private let passwordTextField = AuthTextField(icon: UIImage(systemName: "lock") ?? .init(), placeholder: "Password")
-    
-    private let passwordVisiblityButton = UIButton()
+    private let passwordTextField = AuthTextField(icon: UIImage(systemName: "lock") ?? .init(), placeholder: "Password").then {
+        $0.isSecureTextEntry = true
+    }
     
     private let doneButton = UIButton().then {
         $0.setTitle("Log In", for: .normal)
@@ -42,12 +41,11 @@ final class LoginVC: baseVC<LoginReactor>{
     private let toRegisterButton = UIButton().then {
         $0.setTitle("Register Now", for: .normal)
         $0.setTitleColor(.gray, for: .normal)
-        
     }
     
     // MARK: - UI
     override func addView(){
-        [welcomeLabel, stack, passwordVisiblityButton, toRegisterButton].forEach{ view.addSubview($0) }
+        [welcomeLabel, stack, toRegisterButton].forEach{ view.addSubview($0) }
     }
     override func setLayout() {
         welcomeLabel.snp.makeConstraints {
@@ -61,9 +59,6 @@ final class LoginVC: baseVC<LoginReactor>{
         }
         doneButton.snp.makeConstraints {
             $0.height.equalTo(50)
-        }
-        passwordVisiblityButton.snp.makeConstraints {
-            $0.centerY.trailing.equalTo(passwordTextField)
         }
         toRegisterButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -94,29 +89,13 @@ final class LoginVC: baseVC<LoginReactor>{
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        passwordVisiblityButton.rx.tap
-            .map { Reactor.Action.passwordVisiblityButtonDidTap }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
         doneButton.rx.tap
             .map { Reactor.Action.doneDidTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
     override func bindState(reactor: LoginReactor) {
-        let sharedState = reactor.state.share(replay: 2).observe(on: MainScheduler.instance)
-        let pwdVisible = sharedState.map { $0.isPasswordVisible }
         
-        pwdVisible
-            .map { $0 ? UIImage(systemName: "eye") : UIImage(systemName: "eye.slash") }
-            .bind(to: passwordVisiblityButton.rx.image())
-            .disposed(by: disposeBag)
-        
-        pwdVisible
-            .map { !$0 }
-            .bind(to: passwordTextField.rx.isSecureTextEntry)
-            .disposed(by: disposeBag)
     }
     override func bindAction(reactor: LoginReactor) {
         
