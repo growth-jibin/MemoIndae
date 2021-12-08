@@ -14,7 +14,7 @@ struct AppStepper: Stepper{
     private let disposeBag: DisposeBag = .init()
     
     func readyToEmitSteps() {
-        Network.shared.checkLoggedin()
+        UserService.shared.checkLoggedin()
             .map{ $0 ? MemoStep.memoListIsRequired : MemoStep.loginIsRequired }
             .bind(to: steps)
             .disposed(by: disposeBag)

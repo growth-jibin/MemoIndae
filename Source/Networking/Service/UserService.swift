@@ -8,12 +8,12 @@
 import Moya
 import RxSwift
 
-protocol NetworkType: class{
+protocol UserServiceType: class{
     func checkLoggedin() -> Observable<Bool>
 }
 
-final class Network: NetworkType{
-    static let shared = Network()
+final class UserService: UserServiceType{
+    static let shared = UserService()
     
     func checkLoggedin() -> Observable<Bool>{
         let isLoggedIn = UserDefaults.standard.bool(forKey: "Loggedin")

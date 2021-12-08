@@ -45,7 +45,7 @@ extension LoginReactor{
         case .updatePassword(let pwd):
             return .just(.setPassword(pwd: pwd))
         case .doneDidTap:
-            
+            login()
             return .empty()
         case .toRegisterButtonDidTap:
             steps.accept(MemoStep.registerIsRequired)
@@ -70,5 +70,9 @@ extension LoginReactor{
 
 // MARK: - Method
 private extension LoginReactor{
-    
+    func login(){
+            
+            
+            
+    }
 }

@@ -34,6 +34,8 @@ final class RegisterVC: baseVC<RegisterReactor>{
     private let registerButton = UIButton().then {
         $0.setTitle("Register", for: .normal)
         $0.setTitleColor(.black, for: .normal)
+        $0.backgroundColor = .blue.withAlphaComponent(0.7)
+        $0.layer.cornerRadius = 15
     }
     
     private lazy var stack = UIStackView(arrangedSubviews: [nicknameTextField, passwordTextField, chkPasswordTextField, registerButton]).then {
@@ -43,7 +45,7 @@ final class RegisterVC: baseVC<RegisterReactor>{
     
     private let toLoginButton = UIButton().then {
         $0.setTitle("Login Now", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(.gray, for: .normal)
     }
     
     // MARK: - UI
@@ -68,6 +70,9 @@ final class RegisterVC: baseVC<RegisterReactor>{
             $0.bottom.equalToSuperview().inset(30)
         }
     }
+    override func configureVC() {
+        self.navigationItem.hidesBackButton = true
+    }
     
     // MARK: - Reactor
     override func bindView(reactor: RegisterReactor) {
@@ -90,7 +95,7 @@ final class RegisterVC: baseVC<RegisterReactor>{
             .disposed(by: disposeBag)
         
         toLoginButton.rx.tap
-            .map { Reactor.Action.loginButtonDidTap }
+            .map { Reactor.Action.toLoginButtonDidTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }

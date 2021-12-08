@@ -24,7 +24,7 @@ final class RegisterReactor: Reactor, Stepper{
         case updatePassword(pwd: String)
         case updateChkPassword(pwd: String)
         case registerButtonDidTap
-        case loginButtonDidTap
+        case toLoginButtonDidTap
     }
     enum Mutation{
         case setName(name: String)
@@ -51,7 +51,7 @@ extension RegisterReactor{
         case .registerButtonDidTap:
             
             return .empty()
-        case .loginButtonDidTap:
+        case .toLoginButtonDidTap:
             steps.accept(MemoStep.loginIsRequired)
             return .empty()
         }

@@ -15,6 +15,12 @@
 		465C934D275F844800F90369 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934C275F844800F90369 /* RegisterVC.swift */; };
 		465C934F275F846300F90369 /* RegisterReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934E275F846300F90369 /* RegisterReactor.swift */; };
 		465C9354275F949F00F90369 /* RegisterFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9353275F949F00F90369 /* RegisterFlow.swift */; };
+		465C9357275FA6DF00F90369 /* MemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9356275FA6DF00F90369 /* MemoAPI.swift */; };
+		465C935B275FA70900F90369 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C935A275FA70900F90369 /* User.swift */; };
+		465C935E275FA90200F90369 /* EncodableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C935D275FA90200F90369 /* EncodableExt.swift */; };
+		465C9360275FA95800F90369 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C935F275FA95800F90369 /* NetworkManager.swift */; };
+		465C9363275FAA0600F90369 /* MemoListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9362275FAA0600F90369 /* MemoListVC.swift */; };
+		465C9365275FAA1300F90369 /* MemoListReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9364275FAA1300F90369 /* MemoListReactor.swift */; };
 		467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9C6275E2B67003C13C8 /* StepExt.swift */; };
 		467DB9D4275E2B67003C13C8 /* MemoStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9C9275E2B67003C13C8 /* MemoStep.swift */; };
 		467DB9D5275E2B67003C13C8 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9CA275E2B67003C13C8 /* AppFlow.swift */; };
@@ -22,7 +28,7 @@
 		467DB9D7275E2B67003C13C8 /* LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9CF275E2B67003C13C8 /* LoginFlow.swift */; };
 		467DB9D8275E2B67003C13C8 /* baseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9D1275E2B67003C13C8 /* baseVC.swift */; };
 		467DB9F8275E2BA8003C13C8 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DB9E6275E2BA8003C13C8 /* AuthTextField.swift */; };
-		467DBA02275E2BCA003C13C8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DBA01275E2BCA003C13C8 /* Network.swift */; };
+		467DBA02275E2BCA003C13C8 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DBA01275E2BCA003C13C8 /* UserService.swift */; };
 		467DBA05275ECF99003C13C8 /* UITextFieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 467DBA04275ECF99003C13C8 /* UITextFieldExt.swift */; };
 		4719D696DECAAC0FD4D011AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E186AF9CEFAAEA6A38A194BA /* AppDelegate.swift */; };
 		5983F04DC24BC548222EA567 /* Pods_Memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D76944036E2CB2130B9A11A8 /* Pods_Memo.framework */; };
@@ -54,6 +60,12 @@
 		465C934C275F844800F90369 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		465C934E275F846300F90369 /* RegisterReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterReactor.swift; sourceTree = "<group>"; };
 		465C9353275F949F00F90369 /* RegisterFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlow.swift; sourceTree = "<group>"; };
+		465C9356275FA6DF00F90369 /* MemoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAPI.swift; sourceTree = "<group>"; };
+		465C935A275FA70900F90369 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		465C935D275FA90200F90369 /* EncodableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExt.swift; sourceTree = "<group>"; };
+		465C935F275FA95800F90369 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		465C9362275FAA0600F90369 /* MemoListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListVC.swift; sourceTree = "<group>"; };
+		465C9364275FAA1300F90369 /* MemoListReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListReactor.swift; sourceTree = "<group>"; };
 		467DB9C6275E2B67003C13C8 /* StepExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepExt.swift; sourceTree = "<group>"; };
 		467DB9C9275E2B67003C13C8 /* MemoStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoStep.swift; sourceTree = "<group>"; };
 		467DB9CA275E2B67003C13C8 /* AppFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
@@ -61,7 +73,7 @@
 		467DB9CF275E2B67003C13C8 /* LoginFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginFlow.swift; sourceTree = "<group>"; };
 		467DB9D1275E2B67003C13C8 /* baseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = baseVC.swift; sourceTree = "<group>"; };
 		467DB9E6275E2BA8003C13C8 /* AuthTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
-		467DBA01275E2BCA003C13C8 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		467DBA01275E2BCA003C13C8 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		467DBA04275ECF99003C13C8 /* UITextFieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExt.swift; sourceTree = "<group>"; };
 		4DE135C4BBC60C13883A64A2 /* Assets+Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Assets+Memo.swift"; sourceTree = "<group>"; };
 		522DFF5C061268AE218F6AEC /* Memo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,9 +144,50 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		465C9355275FA6AE00F90369 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				467DBA01275E2BCA003C13C8 /* UserService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		465C9358275FA6F700F90369 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				465C935A275FA70900F90369 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		465C935C275FA8D200F90369 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				465C935D275FA90200F90369 /* EncodableExt.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		465C9361275FA9FC00F90369 /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				465C9362275FAA0600F90369 /* MemoListVC.swift */,
+				465C9364275FAA1300F90369 /* MemoListReactor.swift */,
+			);
+			path = Memo;
+			sourceTree = "<group>";
+		};
+		465C9366275FAA1700F90369 /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Memo;
+			sourceTree = "<group>";
+		};
 		467DB9C3275E2B67003C13C8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				465C9358275FA6F700F90369 /* Model */,
 				467DB9C4275E2B67003C13C8 /* Extensions */,
 			);
 			path = Common;
@@ -143,6 +196,7 @@
 		467DB9C4275E2B67003C13C8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				465C935C275FA8D200F90369 /* Foundation */,
 				467DBA03275ECF90003C13C8 /* UIKit */,
 				467DB9C5275E2B67003C13C8 /* Rx */,
 			);
@@ -179,6 +233,7 @@
 		467DB9CC275E2B67003C13C8 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				465C9366275FAA1700F90369 /* Memo */,
 				467DB9CD275E2B67003C13C8 /* Auth */,
 			);
 			path = Flows;
@@ -212,6 +267,7 @@
 		467DB9DA275E2B92003C13C8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				465C9361275FA9FC00F90369 /* Memo */,
 				467DB9DB275E2B92003C13C8 /* Auth */,
 			);
 			path = Scene;
@@ -263,6 +319,7 @@
 		467DB9FF275E2BCA003C13C8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				465C9355275FA6AE00F90369 /* Service */,
 				467DBA00275E2BCA003C13C8 /* API */,
 			);
 			path = Networking;
@@ -271,7 +328,8 @@
 		467DBA00275E2BCA003C13C8 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				467DBA01275E2BCA003C13C8 /* Network.swift */,
+				465C9356275FA6DF00F90369 /* MemoAPI.swift */,
+				465C935F275FA95800F90369 /* NetworkManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -458,18 +516,24 @@
 				1A3A9F937FC30EA2411E101D /* Assets+Memo.swift in Sources */,
 				465C9345275F59BA00F90369 /* LoginReactor.swift in Sources */,
 				465C9343275F599B00F90369 /* LoginVC.swift in Sources */,
+				465C9360275FA95800F90369 /* NetworkManager.swift in Sources */,
 				467DB9D5275E2B67003C13C8 /* AppFlow.swift in Sources */,
 				BC9CE930BEA3C3E0BF44F92C /* Bundle+Memo.swift in Sources */,
 				4719D696DECAAC0FD4D011AE /* AppDelegate.swift in Sources */,
 				467DB9F8275E2BA8003C13C8 /* AuthTextField.swift in Sources */,
+				465C935B275FA70900F90369 /* User.swift in Sources */,
+				465C9365275FAA1300F90369 /* MemoListReactor.swift in Sources */,
 				465C9354275F949F00F90369 /* RegisterFlow.swift in Sources */,
 				467DBA05275ECF99003C13C8 /* UITextFieldExt.swift in Sources */,
 				465C934D275F844800F90369 /* RegisterVC.swift in Sources */,
 				467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */,
-				467DBA02275E2BCA003C13C8 /* Network.swift in Sources */,
+				467DBA02275E2BCA003C13C8 /* UserService.swift in Sources */,
+				465C9363275FAA0600F90369 /* MemoListVC.swift in Sources */,
+				465C935E275FA90200F90369 /* EncodableExt.swift in Sources */,
 				467DB9D7275E2B67003C13C8 /* LoginFlow.swift in Sources */,
 				467DB9D6275E2B67003C13C8 /* AppStepper.swift in Sources */,
 				465C934F275F846300F90369 /* RegisterReactor.swift in Sources */,
+				465C9357275FA6DF00F90369 /* MemoAPI.swift in Sources */,
 				E41899ED6C03FAB7FC164E4D /* SceneDelegate.swift in Sources */,
 				467DB9D4275E2B67003C13C8 /* MemoStep.swift in Sources */,
 			);

@@ -60,11 +60,9 @@ private extension AppFlow{
     }
     func coordinateToRegister() -> FlowContributors{
         let flow = RegisterFlow(with: .init())
-        Flows.use(
-            flow,
-            when: .created) { [unowned self] root in
-                self.rootWindow.rootViewController = root
-            }
+        Flows.use(flow, when: .created) { [unowned self] root in
+            self.rootWindow.rootViewController = root
+        }
         let nextStep = OneStepper(withSingleStep: MemoStep.registerIsRequired)
         return .one(flowContributor: .contribute(withNextPresentable: flow, withNextStepper: nextStep))
     }
