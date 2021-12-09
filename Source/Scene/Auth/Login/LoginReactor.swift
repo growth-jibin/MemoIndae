@@ -45,8 +45,7 @@ extension LoginReactor{
         case .updatePassword(let pwd):
             return .just(.setPassword(pwd: pwd))
         case .doneDidTap:
-            login()
-            return .empty()
+            return login()
         case .toRegisterButtonDidTap:
             steps.accept(MemoStep.registerIsRequired)
             return .empty()
@@ -70,9 +69,8 @@ extension LoginReactor{
 
 // MARK: - Method
 private extension LoginReactor{
-    func login(){
-            
-            
-            
+    func login() -> Observable<Mutation>{
+        
+        return .empty()
     }
 }

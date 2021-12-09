@@ -214,10 +214,10 @@
 		467DB9C7275E2B67003C13C8 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
+				467DB9CC275E2B67003C13C8 /* Flows */,
 				467DB9C8275E2B67003C13C8 /* Step */,
 				467DB9CA275E2B67003C13C8 /* AppFlow.swift */,
 				467DB9CB275E2B67003C13C8 /* AppStepper.swift */,
-				467DB9CC275E2B67003C13C8 /* Flows */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
