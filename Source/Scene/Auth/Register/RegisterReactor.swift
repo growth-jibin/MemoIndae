@@ -24,7 +24,6 @@ final class RegisterReactor: Reactor, Stepper{
         case updatePassword(pwd: String)
         case updateChkPassword(pwd: String)
         case registerButtonDidTap
-        case toLoginButtonDidTap
     }
     enum Mutation{
         case setName(name: String)
@@ -49,11 +48,7 @@ extension RegisterReactor{
         case .updateChkPassword(let pwd):
             return .just(.setChkPassword(pwd: pwd))
         case .registerButtonDidTap:
-            
-            return .empty()
-        case .toLoginButtonDidTap:
-            steps.accept(MemoStep.loginIsRequired)
-            return .empty()
+            return registerUser()
         }
     }
 }
@@ -75,6 +70,30 @@ extension RegisterReactor{
 }
 
 // MARK: - Method
-extension RegisterReactor{
-    
+private extension RegisterReactor{
+    func registerUser() -> Observable<Mutation>{
+        let user = reqUser(nickname: currentState.nickname,
+                           password: currentState.password,
+                           checkPassword: currentState.checkPassword)
+        NetworkManager.shared.requestRegister(user)
+            .asObservable()
+            .subscribe { [weak self] res in
+                switch res.statusCode{
+                case 201:
+                    // coordinateToMemolistVC or LoginVC
+                    print("Success Register")
+                case 401:
+                    self?.steps.accept(MemoStep.alert(title: "Memo", message: "Already exist nickname"))
+                case 404:
+                    self?.steps.accept(MemoStep.alert(title: "Memo", message: "Password is not valid"))
+                default:
+                    break
+                }
+            } onError: { [weak self] err in
+                print(err.localizedDescription)
+                self?.steps.accept(MemoStep.alert(title: "Memo", message: ""))
+            }
+            .disposed(by: disposeBag)
+        return .empty()
+    }
 }

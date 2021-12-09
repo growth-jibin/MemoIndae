@@ -44,7 +44,7 @@ final class LoginFlow: Flow{
         case .loginIsRequired:
             return coordinateToLogin()
         case .registerIsRequired:
-            return .end(forwardToParentFlowWithStep: MemoStep.registerIsRequired)
+            return coordinateToReigster()
         default:
             return .none
         }
@@ -56,6 +56,12 @@ private extension LoginFlow{
     func coordinateToLogin() -> FlowContributors{
         let reactor = LoginReactor()
         let vc = LoginVC(reactor: reactor)
+        self.rootVC.pushViewController(vc, animated: true)
+        return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: reactor))
+    }
+    func coordinateToReigster() -> FlowContributors{
+        let reactor = RegisterReactor()
+        let vc = RegisterVC(reactor: reactor)
         self.rootVC.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: reactor))
     }

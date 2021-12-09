@@ -67,7 +67,8 @@ final class LoginVC: baseVC<LoginReactor>{
     }
     override func configureVC() {
         super.configureVC()
-        
+        self.title = "Login"
+        self.navigationItem.titleView = .init()
     }
     
     // MARK: - Reactor

@@ -70,7 +70,24 @@ extension LoginReactor{
 // MARK: - Method
 private extension LoginReactor{
     func login() -> Observable<Mutation>{
-        
+        let user = User(nickname: currentState.nickname, password: currentState.password)
+        NetworkManager.shared.requestLogin(user)
+            .asObservable()
+            .subscribe { [weak self] res in
+                switch res.statusCode{
+                case 201:
+                    // coordinateToMemoListVC
+                    print("Success login")
+                case 400:
+                    self?.steps.accept(MemoStep.alert(title: "Memo", message: "Nickname or Password is incorrect"))
+                default:
+                    break
+                }
+            } onError: { err in
+                print(err.localizedDescription)
+            }
+            .disposed(by: disposeBag)
+
         return .empty()
     }
 }

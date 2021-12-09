@@ -28,5 +28,8 @@ final class NetworkManager: NetworkManagerType{
         return provider.rx.request(.requestLogin(user: user), callbackQueue: .global())
     }
     
+    func requestRegister(_ user: reqUser) -> Single<Response>{
+        return provider.rx.request(.requestRegister(user: user), callbackQueue: .global())
+    }
     
 }

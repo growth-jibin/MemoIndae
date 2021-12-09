@@ -16,15 +16,15 @@ enum MemoAPI{
 
 extension MemoAPI: TargetType{
     var baseURL: URL {
-        return URL(string: "10.120.74.32:3000")!
+        return URL(string: "10.120.74.32:4000")!
     }
     
     var path: String {
         switch self{
         case .requestLogin:
-            return "/login"
+            return "/auth/login"
         case .requestRegister:
-            return "/register"
+            return "/auth/register"
         }
     }
     

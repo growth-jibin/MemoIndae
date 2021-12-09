@@ -43,8 +43,8 @@ final class RegisterFlow: Flow{
         switch step{
         case .registerIsRequired:
             return coordinateToRegister()
-        case .loginIsRequired:
-            return .end(forwardToParentFlowWithStep: MemoStep.loginIsRequired)
+        case .alert(let title, let msg):
+            return navigateToAlert(title: title, msg: msg)
         default:
             return .none
         }
@@ -59,6 +59,12 @@ private extension RegisterFlow{
         let vc = RegisterVC(reactor: reactor)
         self.rootVC.setViewControllers([vc], animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: reactor))
+    }
+    func navigateToAlert(title: String?, msg: String?) -> FlowContributors{
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(.init(title: "Cancle", style: .cancel))
+        self.rootVC.present(alert, animated: true)
+        return .none
     }
 }
 

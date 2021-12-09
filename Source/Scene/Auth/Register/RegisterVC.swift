@@ -33,7 +33,7 @@ final class RegisterVC: baseVC<RegisterReactor>{
     
     private let registerButton = UIButton().then {
         $0.setTitle("Register", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .blue.withAlphaComponent(0.7)
         $0.layer.cornerRadius = 15
     }
@@ -43,14 +43,9 @@ final class RegisterVC: baseVC<RegisterReactor>{
         $0.spacing = 40
     }
     
-    private let toLoginButton = UIButton().then {
-        $0.setTitle("Login Now", for: .normal)
-        $0.setTitleColor(.gray, for: .normal)
-    }
-    
     // MARK: - UI
     override func addView() {
-        [getStartLabel, stack, toLoginButton].forEach{ view.addSubview($0) }
+        [getStartLabel, stack].forEach{ view.addSubview($0) }
     }
     override func setLayout() {
         getStartLabel.snp.makeConstraints {
@@ -65,13 +60,9 @@ final class RegisterVC: baseVC<RegisterReactor>{
         registerButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
-        toLoginButton.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(30)
-        }
     }
     override func configureVC() {
-        self.navigationItem.hidesBackButton = true
+        super.configureVC()
     }
     
     // MARK: - Reactor
@@ -94,10 +85,11 @@ final class RegisterVC: baseVC<RegisterReactor>{
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        toLoginButton.rx.tap
-            .map { Reactor.Action.toLoginButtonDidTap }
+        registerButton.rx.tap
+            .map { Reactor.Action.registerButtonDidTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
+        
     }
     override func bindState(reactor: RegisterReactor) {
         
