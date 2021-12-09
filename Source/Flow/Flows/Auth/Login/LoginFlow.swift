@@ -45,6 +45,8 @@ final class LoginFlow: Flow{
             return coordinateToLogin()
         case .registerIsRequired:
             return coordinateToReigster()
+        case .alert(let title, let msg):
+            return navigateToAlert(title: title, msg: msg)
         default:
             return .none
         }
@@ -64,5 +66,14 @@ private extension LoginFlow{
         let vc = RegisterVC(reactor: reactor)
         self.rootVC.pushViewController(vc, animated: true)
         return .one(flowContributor: .contribute(withNextPresentable: vc, withNextStepper: reactor))
+    }
+    func navigateToAlert(title: String?, msg: String?) -> FlowContributors{
+        guard let title = title,
+              let msg = msg
+        else { return .none }
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+        alert.addAction(.init(title: "Cancle", style: .cancel))
+        self.rootVC.present(alert, animated: true)
+        return .none
     }
 }

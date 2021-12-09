@@ -6,4 +6,9 @@
 //  Copyright © 2021 baegteun. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+final class MemoListVC: baseVC<MemoListReactor>{
+    // MARK: - Properties
+    
+}

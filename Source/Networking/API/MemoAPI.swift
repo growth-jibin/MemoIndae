@@ -16,7 +16,7 @@ enum MemoAPI{
 
 extension MemoAPI: TargetType{
     var baseURL: URL {
-        return URL(string: "10.120.74.32:4000")!
+        return URL(string: "http://10.120.74.32:4000")!
     }
     
     var path: String {
@@ -45,7 +45,7 @@ extension MemoAPI: TargetType{
     }
     
     var headers: [String : String]? {
-        nil
+        return nil
     }
     
     

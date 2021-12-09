@@ -14,7 +14,6 @@
 		465C9345275F59BA00F90369 /* LoginReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9344275F59BA00F90369 /* LoginReactor.swift */; };
 		465C934D275F844800F90369 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934C275F844800F90369 /* RegisterVC.swift */; };
 		465C934F275F846300F90369 /* RegisterReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C934E275F846300F90369 /* RegisterReactor.swift */; };
-		465C9354275F949F00F90369 /* RegisterFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9353275F949F00F90369 /* RegisterFlow.swift */; };
 		465C9357275FA6DF00F90369 /* MemoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C9356275FA6DF00F90369 /* MemoAPI.swift */; };
 		465C935B275FA70900F90369 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C935A275FA70900F90369 /* User.swift */; };
 		465C935E275FA90200F90369 /* EncodableExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465C935D275FA90200F90369 /* EncodableExt.swift */; };
@@ -59,7 +58,6 @@
 		465C9344275F59BA00F90369 /* LoginReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginReactor.swift; sourceTree = "<group>"; };
 		465C934C275F844800F90369 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		465C934E275F846300F90369 /* RegisterReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterReactor.swift; sourceTree = "<group>"; };
-		465C9353275F949F00F90369 /* RegisterFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFlow.swift; sourceTree = "<group>"; };
 		465C9356275FA6DF00F90369 /* MemoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoAPI.swift; sourceTree = "<group>"; };
 		465C935A275FA70900F90369 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		465C935D275FA90200F90369 /* EncodableExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExt.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 		465C9350275F943400F90369 /* Register */ = {
 			isa = PBXGroup;
 			children = (
-				465C9353275F949F00F90369 /* RegisterFlow.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -214,10 +211,10 @@
 		467DB9C7275E2B67003C13C8 /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				467DB9CC275E2B67003C13C8 /* Flows */,
-				467DB9C8275E2B67003C13C8 /* Step */,
 				467DB9CA275E2B67003C13C8 /* AppFlow.swift */,
 				467DB9CB275E2B67003C13C8 /* AppStepper.swift */,
+				467DB9CC275E2B67003C13C8 /* Flows */,
+				467DB9C8275E2B67003C13C8 /* Step */,
 			);
 			path = Flow;
 			sourceTree = "<group>";
@@ -523,7 +520,6 @@
 				467DB9F8275E2BA8003C13C8 /* AuthTextField.swift in Sources */,
 				465C935B275FA70900F90369 /* User.swift in Sources */,
 				465C9365275FAA1300F90369 /* MemoListReactor.swift in Sources */,
-				465C9354275F949F00F90369 /* RegisterFlow.swift in Sources */,
 				467DBA05275ECF99003C13C8 /* UITextFieldExt.swift in Sources */,
 				465C934D275F844800F90369 /* RegisterVC.swift in Sources */,
 				467DB9D3275E2B67003C13C8 /* StepExt.swift in Sources */,

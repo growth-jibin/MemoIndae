@@ -26,14 +26,14 @@ final class LoginVC: baseVC<LoginReactor>{
         $0.isSecureTextEntry = true
     }
     
-    private let doneButton = UIButton().then {
+    private let loginButton = UIButton().then {
         $0.setTitle("Log In", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .blue.withAlphaComponent(0.7)
         $0.layer.cornerRadius = 15
     }
     
-    private lazy var stack = UIStackView(arrangedSubviews: [nameTextField, passwordTextField, doneButton]).then {
+    private lazy var stack = UIStackView(arrangedSubviews: [nameTextField, passwordTextField, loginButton]).then {
         $0.axis = .vertical
         $0.spacing = 40
     }
@@ -57,7 +57,7 @@ final class LoginVC: baseVC<LoginReactor>{
             $0.top.equalTo(welcomeLabel.snp.bottom).offset(bound.height*0.1)
             $0.leading.trailing.equalToSuperview().inset(bound.width*0.05)
         }
-        doneButton.snp.makeConstraints {
+        loginButton.snp.makeConstraints {
             $0.height.equalTo(50)
         }
         toRegisterButton.snp.makeConstraints {
@@ -90,7 +90,7 @@ final class LoginVC: baseVC<LoginReactor>{
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        doneButton.rx.tap
+        loginButton.rx.tap
             .map { Reactor.Action.doneDidTap }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

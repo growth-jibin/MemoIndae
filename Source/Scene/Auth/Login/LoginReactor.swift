@@ -78,9 +78,10 @@ private extension LoginReactor{
                 case 201:
                     // coordinateToMemoListVC
                     print("Success login")
-                case 400:
+                case 404:
                     self?.steps.accept(MemoStep.alert(title: "Memo", message: "Nickname or Password is incorrect"))
                 default:
+                    print(res.statusCode)
                     break
                 }
             } onError: { err in
